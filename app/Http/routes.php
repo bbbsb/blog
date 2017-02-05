@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('user/{id?}', function($id = null){
-    return 'user'. $id;
+Route::group(['middleware' => ['web'], 'prefix' => 'admin', 'namespace' => 'Admin'], function(){
+    Route::get('login', 'LoginController@index');
 });
+
