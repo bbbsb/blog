@@ -17,5 +17,6 @@ Route::get('/', function () {
 
 Route::group(['middleware' => ['web'], 'prefix' => 'admin', 'namespace' => 'Admin'], function(){
     Route::get('login', 'LoginController@index');
+    Route::get('captcha', 'LoginController@captcha');
 });
 
