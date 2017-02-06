@@ -20,5 +20,15 @@ class LoginController extends CommonController
         $builder = new CaptchaBuilder();
         $builder->build();
         $builder->output();
+        session(['login_captcha' => $builder->getPhrase()]);
+    }
+
+    public function login(Request $request)
+    {
+        if($input = $request->all()) {
+            if(!session('login_captcha') || strtoupper(session('login_captcha')) != strtoupper($request->get('code'))) {
+                return back()->with('error_msg', '验证码错误');
+            }
+        }
     }
 }

@@ -15,8 +15,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['middleware' => ['web'], 'prefix' => 'admin', 'namespace' => 'Admin'], function(){
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function(){
     Route::get('login', 'LoginController@index');
+    Route::post('login', 'LoginController@login');
     Route::get('captcha', 'LoginController@captcha');
+});
+
+Route::group(['middleware' => ['admin.login'], 'prefix' => 'admin', 'namespace' => 'Admin'], function(){
+    Route::get('index', 'IndexController@index');
+    Route::get('info', 'IndexController@info');
 });
 
