@@ -6,13 +6,15 @@ use App\Http\Controllers\CommonController;
 use App\Http\Model\User;
 use Gregwar\Captcha\CaptchaBuilder;
 use Illuminate\Http\Request;
-use App\Http\Requests;
 use Illuminate\Support\Facades\Crypt;
 
 class LoginController extends CommonController
 {
     public function index()
     {
+        if(session('uid')) {
+            return redirect('admin/index');
+        }
         return view('admin.login');
     }
 
@@ -40,5 +42,11 @@ class LoginController extends CommonController
             session(['uid' => $rst->id, 'username' => $rst->name]);
             return redirect('admin/index');
         }
+    }
+
+    public function logout(Request $request)
+    {
+        $request->session()->flush();
+        return redirect('admin/login');
     }
 }

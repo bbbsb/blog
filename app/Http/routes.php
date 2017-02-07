@@ -19,6 +19,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function(){
     Route::get('login', 'LoginController@index');
     Route::post('login', 'LoginController@login');
     Route::get('captcha', 'LoginController@captcha');
+    Route::get('logout', 'LoginController@logout');
 });
 
 Route::group(['middleware' => ['admin.login'], 'prefix' => 'admin', 'namespace' => 'Admin'], function(){
