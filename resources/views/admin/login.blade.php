@@ -34,7 +34,7 @@
 					</li>
 				</ul>
 			</form>
-			<p><a href="{{url('/')}}">返回首页</a> &copy; 2016 Powered by 包包不是包</p>
+			<p><a href="{{url('/')}}">返回首页</a> &copy; {{date('Y')}} Powered by 包包不是包</p>
 		</div>
 	</div>
 </body>
