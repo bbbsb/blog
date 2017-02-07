@@ -13,7 +13,7 @@
 			@if(session('error_msg'))
 			<p style="color:red">{{session('error_msg')}}</p>
 			@endif
-			<form action="#" method="post">
+			<form action="" method="post">
 				{{csrf_field()}}
 				<ul>
 					<li>
