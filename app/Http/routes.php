@@ -28,5 +28,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function(){
 Route::group(['middleware' => ['admin.login'], 'prefix' => 'admin', 'namespace' => 'Admin'], function(){
     Route::get('index', 'IndexController@index');
     Route::get('info', 'IndexController@info');
+    Route::get('resetpassword', 'IndexController@resetPassword');
+    Route::post('resetpassword', 'IndexController@passwordHandle');
 });
 
