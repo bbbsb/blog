@@ -12,10 +12,13 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('admin/login');
 });
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function(){
+    Route::get('/', function(){
+        return redirect('admin/index');
+    });
     Route::get('login', 'LoginController@index');
     Route::post('login', 'LoginController@login');
     Route::get('captcha', 'LoginController@captcha');
