@@ -2,8 +2,13 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<link rel="stylesheet" href="../../public/css/ch-ui.admin.css">
-	<link rel="stylesheet" href="../../public/font/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{asset('public/css/ch-ui.admin.css')}}">
+    <link rel="stylesheet" href="{{asset('public/font/css/font-awesome.min.css')}}">
+    <script type="text/javascript" src="{{asset('public/js/jquery.js')}}"></script>
+    <script type="text/javascript" src="{{asset('public/js/ch-ui.admin.js')}}"></script>
+    <script type="text/javascript" src="{{asset('public/js/ch-ui.admin.js')}}"></script>
+    <script type="text/javascript" src="{{asset('public/ueditor/ueditor.config.js')}}"></script>
+    <script type="text/javascript" src="{{asset('public/ueditor/ueditor.all.min.js')}}"> </script>
 </head>
 <body>
     <!--面包屑导航 开始-->
@@ -68,20 +73,6 @@
                         <td><input type="file" name=""></td>
                     </tr>
                     <tr>
-                        <th>单选框：</th>
-                        <td>
-                            <label for=""><input type="radio" name="">单选按钮一</label>
-                            <label for=""><input type="radio" name="">单选按钮二</label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>复选框：</th>
-                        <td>
-                            <label for=""><input type="checkbox" name="">复选框一</label>
-                            <label for=""><input type="checkbox" name="">复选框二</label>
-                        </td>
-                    </tr>
-                    <tr>
                         <th>描述：</th>
                         <td>
                             <textarea name="discription"></textarea>
@@ -90,7 +81,7 @@
                     <tr>
                         <th>详细内容：</th>
                         <td>
-                            <textarea class="lg" name="content"></textarea>
+                            <textarea class="lg" name="content" id="content"></textarea>
                             <p>标题可以写30个字</p>
                         </td>
                     </tr>
@@ -105,6 +96,11 @@
             </table>
         </form>
     </div>
-
+    <script>
+        var ue = UE.getEditor('content', {
+            initialFrameWidth:800,  //初始化编辑器宽度,默认1000
+            initialFrameHeight:300
+        });
+    </script>
 </body>
 </html>

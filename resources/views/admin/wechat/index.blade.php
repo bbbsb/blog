@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<link rel="stylesheet" href="../../public/css/ch-ui.admin.css">
-	<link rel="stylesheet" href="../../public/font/css/font-awesome.min.css">
-    <script type="text/javascript" src="../../public/js/jquery.js"></script>
-    <script type="text/javascript" src="../../public/js/ch-ui.admin.js"></script>
+    <link rel="stylesheet" href="{{asset('public/css/ch-ui.admin.css')}}">
+    <link rel="stylesheet" href="{{asset('public/font/css/font-awesome.min.css')}}">
+    <script type="text/javascript" src="{{asset('public/js/jquery.js')}}"></script>
+    <script type="text/javascript" src="{{asset('public/js/ch-ui.admin.js')}}"></script>
 </head>
 <body>
     <!--面包屑导航 开始-->

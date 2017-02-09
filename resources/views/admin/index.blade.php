@@ -33,7 +33,7 @@
             <li>
             	<h3><i class="fa fa-fw fa-clipboard"></i>常用操作</h3>
                 <ul class="sub_menu">
-                    <li><a href="add.blade.php" target="main"><i class="fa fa-fw fa-plus-square"></i>添加页</a></li>
+                    <li><a href="wechat/add.blade.php" target="main"><i class="fa fa-fw fa-plus-square"></i>添加页</a></li>
                     <li><a href="list.html" target="main"><i class="fa fa-fw fa-list-ul"></i>列表页</a></li>
                     <li><a href="tab.html" target="main"><i class="fa fa-fw fa-list-alt"></i>tab页</a></li>
                     <li><a href="img.blade.php" target="main"><i class="fa fa-fw fa-image"></i>图片列表</a></li>
@@ -44,6 +44,13 @@
                 <ul class="sub_menu">
                     <li><a href="#" target="main"><i class="fa fa-fw fa-cubes"></i>网站配置</a></li>
                     <li><a href="#" target="main"><i class="fa fa-fw fa-database"></i>备份还原</a></li>
+                </ul>
+            </li>
+            <li>
+            	<h3><i class="fa fa-fw fa-cog"></i>微信文章</h3>
+                <ul class="sub_menu" style="display: block">
+                    <li><a href="{{url('admin/wechat/article/index')}}" target="main"><i class="fa fa-fw fa-cubes"></i>微信文章列表</a></li>
+                    <li><a href="{{url('admin/wechat/article/create')}}" target="main"><i class="fa fa-fw fa-database"></i>添加文章</a></li>
                 </ul>
             </li>
             <li>

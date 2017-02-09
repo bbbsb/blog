@@ -30,5 +30,9 @@ Route::group(['middleware' => ['admin.login'], 'prefix' => 'admin', 'namespace' 
     Route::get('info', 'IndexController@info');
     Route::get('resetpassword', 'IndexController@resetPassword');
     Route::post('resetpassword', 'IndexController@passwordHandle');
+
+    Route::get('wechat/article/index', 'WechatArticleController@index');
+    Route::get('wechat/article/create', 'WechatArticleController@create');
+    Route::post('wechat/article/create', 'WechatArticleController@store');
 });
 
