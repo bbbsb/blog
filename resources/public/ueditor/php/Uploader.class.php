@@ -9,6 +9,8 @@
  */
 class Uploader
 {
+    const UPLOAD_PATH = __DIR__.'/../../../';
+
     private $fileField; //文件域名
     private $file; //文件上传对象
     private $base64; //文件上传对象
@@ -326,7 +328,7 @@ class Uploader
     private function getFilePath()
     {
         $fullname = $this->fullName;
-        $rootPath = $_SERVER['DOCUMENT_ROOT'];
+        $rootPath = self::UPLOAD_PATH;
 
         if (substr($fullname, 0, 1) != '/') {
             $fullname = '/' . $fullname;
