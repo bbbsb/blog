@@ -50,7 +50,7 @@
         </div>
         <div class="result_wrap">
             坐标消息回复：
-            <textarea name="location" id="" cols="20" rows="8">{{$responses['position']}}</textarea>
+            <textarea name="location" id="" cols="20" rows="8">{{$responses['location']}}</textarea>
         </div>
         <div class="result_wrap">
             图文消息回复：

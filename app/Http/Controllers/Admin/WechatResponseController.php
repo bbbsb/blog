@@ -27,7 +27,7 @@ class WechatResponseController extends Controller
             $responses['picture-article'] = '亲的文字信息我收到了';
             $responses['article'] = '亲的文字信息我收到了';
             $responses['default'] = '亲的信息我收到了';
-            $responses['position'] = '亲的定位信息我收到了';
+            $responses['location'] = '亲的定位信息我收到了';
         }
         return view('admin.wechat.response_index', compact('responses'));
     }
