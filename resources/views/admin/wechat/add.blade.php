@@ -9,6 +9,7 @@
     <script type="text/javascript" src="{{asset('public/js/ch-ui.admin.js')}}"></script>
     <script type="text/javascript" src="{{asset('public/ueditor/ueditor.config.js')}}"></script>
     <script type="text/javascript" src="{{asset('public/ueditor/ueditor.all.min.js')}}"> </script>
+    <script type="text/javascript" src="{{asset('public/third-party/uploadify/jquery.uploadify.js')}}"> </script>
 </head>
 <body>
     <!--面包屑导航 开始-->
@@ -35,6 +36,7 @@
     
     <div class="result_wrap">
         <form action="#" method="post">
+            {{csrf_field()}}
             <table class="add_tab">
                 <tbody>
                     <tr>
@@ -50,33 +52,20 @@
                     <tr>
                         <th><i class="require">*</i>标题：</th>
                         <td>
-                            <input type="text" class="lg" name="">
+                            <input type="text" class="lg" name="title">
                             <p>标题可以写30个字</p>
                         </td>
                     </tr>
                     <tr>
                         <th>作者：</th>
                         <td>
-                            <input type="text" name="">
+                            <input type="text" name="author">
                             <span><i class="fa fa-exclamation-circle yellow"></i>这里是默认长度</span>
                         </td>
                     </tr>
                     <tr>
-                        <th><i class="require">*</i>价格：</th>
-                        <td>
-                            <input type="text" class="sm" name="">元
-                            <span><i class="fa fa-exclamation-circle yellow"></i>这里是短文本长度</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th><i class="require">*</i>缩略图：</th>
-                        <td><input type="file" name=""></td>
-                    </tr>
-                    <tr>
-                        <th>描述：</th>
-                        <td>
-                            <textarea name="discription"></textarea>
-                        </td>
+                        <th><i class="require">*</i>封面：</th>
+                        <td><input type="file" name="cover" id="upload_thumb"></td>
                     </tr>
                     <tr>
                         <th>详细内容：</th>
@@ -100,6 +89,19 @@
         var ue = UE.getEditor('content', {
             initialFrameWidth:800,  //初始化编辑器宽度,默认1000
             initialFrameHeight:300
+        });
+    </script>
+    <script>
+        $(function() {
+            $("#upload_thumb").uploadify({
+                height        : 30,
+                swf           : "{{asset('public/third-party/uploadify/uploadify.swf')}}",
+                uploader      : "{{asset('public/third-party/uploadify/uploadify.php')}}",
+                width         : 120,
+                'onUploadError' : function(file, errorCode, errorMsg, errorString) {
+                    alert('The file ' + file.name + ' could not be uploaded: ' + errorString);
+                }
+            });
         });
     </script>
 </body>
