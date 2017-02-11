@@ -43,5 +43,5 @@ Route::group(['middleware' => ['admin.login'], 'prefix' => 'admin', 'namespace' 
 
 });
 
-Route::any('/wxl', 'WechatResponseController@wxl');
+Route::any('/wxl', 'Admin\WechatResponseController@wxl');
 
