@@ -54,8 +54,13 @@ class WechatResponseController extends Controller
 
     private function getContent($name)
     {
-        $content = WechatResponse::where('name', $name)->first()->toArray();
-        return $content['content'];
+        $content = WechatResponse::where('name', $name)->first();
+        $rst = '';
+        if($content) {
+            $rst= $content->toArray();
+            $rst = $rst['content'];
+        }
+        return $rst;
     }
 
     public function wxl()
