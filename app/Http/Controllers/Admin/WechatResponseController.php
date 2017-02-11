@@ -19,14 +19,15 @@ class WechatResponseController extends Controller
         }
         if(empty($responses)) {
             $responses['text'] = '亲的文字信息我收到了';
-            $responses['event'] = '亲的文字信息我收到了';
-            $responses['image'] = '亲的文字信息我收到了';
-            $responses['video'] = '亲的文字信息我收到了';
-            $responses['voice'] = '亲的文字信息我收到了';
-            $responses['link'] = '亲的文字信息我收到了';
+            $responses['event'] = '谢谢亲的关注了';
+            $responses['image'] = '亲的图片信息我收到了';
+            $responses['video'] = '亲的视频信息我收到了';
+            $responses['voice'] = '亲的声音信息我收到了';
+            $responses['link'] = '亲的链接信息我收到了';
             $responses['picture-article'] = '亲的文字信息我收到了';
             $responses['article'] = '亲的文字信息我收到了';
-            $responses['default'] = '亲的文字信息我收到了';
+            $responses['default'] = '亲的信息我收到了';
+            $responses['position'] = '亲的定位信息我收到了';
         }
         return view('admin.wechat.response_index', compact('responses'));
     }
