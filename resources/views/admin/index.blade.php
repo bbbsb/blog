@@ -51,6 +51,7 @@
                 <ul class="sub_menu" style="display: block">
                     <li><a href="{{url('admin/wechat/article/index')}}" target="main"><i class="fa fa-fw fa-cubes"></i>微信文章列表</a></li>
                     <li><a href="{{url('admin/wechat/article/create')}}" target="main"><i class="fa fa-fw fa-database"></i>添加文章</a></li>
+                    <li><a href="{{url('admin/wechat/response/index')}}" target="main"><i class="fa fa-fw fa-database"></i>微信回复</a></li>
                 </ul>
             </li>
             <li>

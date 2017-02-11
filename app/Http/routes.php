@@ -36,5 +36,10 @@ Route::group(['middleware' => ['admin.login'], 'prefix' => 'admin', 'namespace' 
     Route::post('wechat/article/create', 'WechatArticleController@store');
 
     Route::get('wechat/publish', 'WechatArticleController@publish');
+
+    Route::get('wechat/response/index', 'WechatResponseController@index');
+    Route::post('wechat/response/update', 'WechatResponseController@update');
+
+    Route::any('/wxl', 'WechatResponseController@wxl');
 });
 

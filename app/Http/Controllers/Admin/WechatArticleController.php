@@ -13,7 +13,8 @@ class WechatArticleController extends CommonController
 {
     public function index()
     {
-        return view('admin/wechat/index');
+        $articles = WechatArticle::all();
+        return view('admin/wechat/index', compact('articles'));
     }
 
     public function create()
@@ -24,13 +25,17 @@ class WechatArticleController extends CommonController
     public function store(Request $request)
     {
         $input = $request->all();
-        WechatArticle::create([
+        $rst = WechatArticle::create([
            'title' => $input['title'],
             'cover' => '123',
             'content' => $input['content'],
             'author' => $input['author']
         ]);
-        dd($request->all());
+        if($rst) {
+            return redirect('admin/wechat/article/index');
+        } else {
+            return back()->with('msg', '添加文章失败');
+        }
     }
 
     public function publish()
