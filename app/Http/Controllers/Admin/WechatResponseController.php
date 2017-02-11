@@ -12,8 +12,8 @@ class WechatResponseController extends Controller
 {
     public function index()
     {
-        dd($this->getContent('text'));
         $arr = WechatResponse::all()->toArray();
+        $responses = [];
         foreach($arr as $v) {
             $responses[$v['name']] = $v['content'];
         }
