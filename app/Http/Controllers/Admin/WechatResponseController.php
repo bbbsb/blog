@@ -12,6 +12,7 @@ class WechatResponseController extends Controller
 {
     public function index()
     {
+        dd($this->getContent('text'));
         $arr = WechatResponse::all()->toArray();
         foreach($arr as $v) {
             $responses[$v['name']] = $v['content'];
@@ -39,6 +40,12 @@ class WechatResponseController extends Controller
         ]);
     }
 
+    private function getContent($name)
+    {
+        $content = WechatResponse::where('name', $name)->first()->toArray();
+        return $content['content'];
+    }
+
     public function wxl()
     {
         $wechat = app('wechat');
@@ -46,29 +53,29 @@ class WechatResponseController extends Controller
             $tmp = '';
             switch ($message->MsgType) {
                 case 'event':
-                    $tmp = '谢谢亲的关注了';
+                    $tmp =  $this->getContent('event') ? : '谢谢亲的关注了';
                     break;
                 case 'text':
-                    $tmp = '亲的文字信息我收到了';
+                    $tmp = $this->getContent('text') ? : '亲的文字信息我收到了';
                     break;
                 case 'image':
-                    $tmp = '亲的图片信息我收到了';
+                    $tmp = $this->getContent('image') ? : '亲的图片信息我收到了';
                     break;
                 case 'voice':
-                    $tmp = '亲的声音信息我收到了';
+                    $tmp = $this->getContent('voice') ? : '亲的声音信息我收到了';
                     break;
                 case 'video':
-                    $tmp = '亲的视频信息我收到了';
+                    $tmp = $this->getContent('video') ? : '亲的视频信息我收到了';
                     break;
                 case 'location':
-                    $tmp = '亲的定位信息我收到了';
+                    $tmp = $this->getContent('location') ? : '亲的定位信息我收到了';
                     break;
                 case 'link':
-                    $tmp = '亲的链接信息我收到了';
+                    $tmp = $this->getContent('link') ? : '亲的链接信息我收到了';
                     break;
                 // ... 其它消息
                 default:
-                    $tmp = '亲的信息我收到了';
+                    $tmp = $this->getContent('default') ? : '亲的信息我收到了';
                     break;
             }
             return $tmp;
